@@ -1,0 +1,9 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: "simplenodeservice-team10001-intruder-special"
+  labels:
+    dt.owner: "team10001"
+  annotations:
+    keptn.sh/lifecycle-toolkit: "enabled"

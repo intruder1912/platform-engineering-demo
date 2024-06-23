@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "simplenodeservice-team10001-intruder-special"
+  title: "simplenodeservice-team10001-intruder-special"
+  description: "Template for the simplenodeservice owned and operated by team10001 in environment intruder-special"
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+    # Not working
+    'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/name=userinterface'
+    'backstage.io/kubernetes-namespace': 'simplenodeservice-team10001-intruder-special'
+    argocd/app-name: simplenodeservice-team10001-intruder-special
+  links:
+    - url: https://github.com/intruder1912/platform-engineering-demo.git
+      title: Github Repo
+      icon: github
+    - url: https://organic-robot-9gxjq99q7fx6wj-80.app.github.dev/simplenodeservice-team10001-intruder-special
+      title: "Browse Application"
+      icon: subject
+    - title: View in ArgoCD
+      icon: catalog
+      url: https://organic-robot-9gxjq99q7fx6wj-30100.app.github.dev/applications/argocd/simplenodeservice-team10001-intruder-special
+    - title: View in Dynatrace
+      icon: catalog
+      url: https://sty13038.apps.dynatrace.com
+    - url: https://community.dynatrace.com
+      title: Dynatrace community
+      icon: dashboard
+spec:
+  type: website
+  owner: team10001
+  lifecycle: intruder-special
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: team10001
+  description: Group for application team team10001
+spec:
+  type: business-unit
+  profile:
+    displayName: Team Intruder 1912
+    email: teamintruder@example.com
+    picture: https://example.com/staff/jenny-with-party-hat.jpeg
+  parent: applications
+  children: []
+#   members: [jdoe]

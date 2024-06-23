@@ -1,0 +1,14 @@
+configs:
+- id: simplenodeservice-team10001-intruder-special_synthetic
+  config:
+    name: "Healthcheck simplenodeservice-team10001-intruder-special"
+    parameters:
+      baseUrl: "https://organic-robot-9gxjq99q7fx6wj-80.app.github.dev/simplenodeservice-team10001-intruder-special"
+      frequencyMin: "1"
+      enabled: "true"
+      geoLocation: "GEOLOCATION-45AB48D9D6925ECC"
+      teamIdentifier: "team10001"
+    template: health-check-http.json
+    skip: false
+  type:
+    api: synthetic-monitor

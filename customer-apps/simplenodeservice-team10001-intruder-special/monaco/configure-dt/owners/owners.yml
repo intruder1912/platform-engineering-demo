@@ -1,0 +1,24 @@
+configs:
+- id: team10001
+  type:
+    settings:
+      schema: builtin:ownership.teams
+      scope: environment
+  config:
+    name: team10001
+    template: appteam.json
+    parameters:
+      descr: Team Intruder 1912
+      team_id: team10001
+      development: true
+      security: false
+      operations: true
+      infrastructure: false
+      lineOfBusiness: false
+      slackChannel: somewhere
+      slackURL: https://somewhere.slack.com/archives/team10001
+      email: teamintruder@example.com
+      addInfoKey: costcode
+      addInfoValue: team10001
+      addInfoUrl: https://example.com/team10001
+    skip: false
