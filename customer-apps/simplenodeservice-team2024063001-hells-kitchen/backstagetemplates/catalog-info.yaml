@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "simplenodeservice-team2024063001-hells-kitchen"
+  title: "simplenodeservice-team2024063001-hells-kitchen"
+  description: "Template for the simplenodeservice owned and operated by team2024063001 in environment hells-kitchen"
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+    # Not working
+    'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/name=userinterface'
+    'backstage.io/kubernetes-namespace': 'simplenodeservice-team2024063001-hells-kitchen'
+    argocd/app-name: simplenodeservice-team2024063001-hells-kitchen
+  links:
+    - url: https://github.com/intruder1912/platform-engineering-demo.git
+      title: Github Repo
+      icon: github
+    - url: https://fictional-eureka-9gxjq995j377ww-80.app.github.dev/simplenodeservice-team2024063001-hells-kitchen
+      title: "Browse Application"
+      icon: subject
+    - title: View in ArgoCD
+      icon: catalog
+      url: https://fictional-eureka-9gxjq995j377ww-30100.app.github.dev/applications/argocd/simplenodeservice-team2024063001-hells-kitchen
+    - title: View in Dynatrace
+      icon: catalog
+      url: https://sty13038.apps.dynatrace.com
+    - url: https://community.dynatrace.com
+      title: Dynatrace community
+      icon: dashboard
+spec:
+  type: website
+  owner: team2024063001
+  lifecycle: hells-kitchen
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: team2024063001
+  description: Group for application team team2024063001
+spec:
+  type: business-unit
+  profile:
+    displayName: Team 20240630 01
+    email: team2024063001@example.com
+    picture: https://example.com/staff/jenny-with-party-hat.jpeg
+  parent: applications
+  children: []
+#   members: [jdoe]
