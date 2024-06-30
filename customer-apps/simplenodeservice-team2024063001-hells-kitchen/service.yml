@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: "simplenodeservice-team2024063001"
+  namespace: "simplenodeservice-team2024063001-hells-kitchen"
+  labels:
+    dt.owner: "team2024063001"
+spec:
+  ports:
+  - port: 80
+    targetPort: http
+    protocol: TCP
+    name: http
+  selector:
+    app.kubernetes.io/name: "userinterface"

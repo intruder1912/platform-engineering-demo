@@ -1,0 +1,58 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: "simplenodeservice-team2024063001"
+  namespace: "simplenodeservice-team2024063001-hells-kitchen"
+  labels:
+    dt.owner: "team2024063001"
+spec:
+  replicas: 2
+  strategy:
+    canary:
+      steps:
+      - setWeight: 50
+      - pause: {duration: 5s}
+      - setWeight: 100
+  revisionHistoryLimit: 0
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: userinterface
+  template:
+    metadata:
+      labels:
+        dt.owner: "team2024063001"
+        app.kubernetes.io/name: userinterface
+        app.kubernetes.io/part-of: "simplenodeservice-team2024063001"
+        app.kubernetes.io/version: "11.03.21"
+        dynatrace-release-stage: "hells-kitchen"
+        backstage.io/component: "default.simplenodeservice-team2024063001-hells-kitchen"
+    spec:
+      containers:
+      - name: rollouts-demo
+        image: grabnerandi/simplenodeservice:11.03.21
+        env:
+        - name: DT_RELEASE_VERSION
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/version']
+        - name: DT_RELEASE_PRODUCT
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/part-of']
+        - name: DT_RELEASE_STAGE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['dynatrace-release-stage']
+        - name: DT_CUSTOM_PROP
+          value: "owner=team2024063001 project=simplenodeservice stage=hells-kitchen"
+        - name: DT_TAGS
+          value: "dt.owner=team2024063001"
+        ports:
+        - name: http
+          containerPort: 8080
+          protocol: TCP
+        resources:
+          requests:
+            memory: 3Mi
+            cpu: 5m
